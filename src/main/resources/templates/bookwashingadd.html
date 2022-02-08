@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Machine Management</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body style="background-color: ghostwhite">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/book/machines}"><b>View Booked Machine</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><b>LOGOUT</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Add Booking</h1>
+            <form th:action="@{/book/machine}" method="post">
+                <div class="form-group">
+                    <label>Room Number</label>: <input type="text" name="roomNumber" class="form-control" autofocus="autofocus" placeholder="Room Number" />
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Start Date</label>: <input type="date" name="start" class="form-control"  />
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>End Date</label>: <input type="date" name="end" class="form-control" />
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="add-submit" id="add-submit"
+                                   class="form-control btn btn-primary" value="Add" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--    Container div ending tag-->
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>

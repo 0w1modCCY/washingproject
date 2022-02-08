@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <title>Machine Management</title>
+</head>
+<body style="background-color: ghostwhite">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/order}"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><b>LOGOUT</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+
+    <div style="text-align: center;">
+        <h2>Machines Booked</h2>
+
+        <div>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Machine Name</th>
+                    <th>Machine Weight</th>
+                    <th>Book Start Date</th>
+                    <th>Book End Date</th>
+                    <th>Room No</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="wash : ${washingItems}">
+                    <td th:text="${wash.name}"></td>
+                    <td th:text="${wash.weight}"></td>
+                    <td th:text="${wash.start}"></td>
+                    <td th:text="${wash.end}"></td>
+                    <td th:text="${wash.roomNumber}"></td>
+                    <td><a th:href="@{/remove/machine/{id}(id = ${wash.bookingId})}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

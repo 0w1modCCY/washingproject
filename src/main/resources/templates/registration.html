@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"></meta>
+	<title>Machine Management</title>
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body style="background-color: ghostwhite">
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div th:if="${param.failure}">
+				<div class="alert alert-danger">There is already an account registered with that username</div>
+			</div>
+			<h1>Sign Up</h1>
+			<form th:action="@{/registration}" method="post">
+				<div class="form-group">
+					<label>Username</label>: <input type="text" name="userName" class="form-control"
+																   autofocus="autofocus" placeholder="Username" required />
+				</div>
+				<br>
+				<div class="form-group">
+					<label>Password</label>: <input type="password" name="password" class="form-control"
+																   placeholder="Password" required/>
+				</div>
+				<br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">Register</button>
+					<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--    Container div ending tag-->
+</div>
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
